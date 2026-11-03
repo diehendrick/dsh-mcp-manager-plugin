@@ -1,0 +1,50 @@
+{
+  "name": "@local/dsh-mcp-manager",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server manager for DeepSeek Harness: add, edit, enable, and remove Model Context Protocol servers from the Settings UI; their tools reach the agent live.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "mcp",
+    "model-context-protocol",
+    "plugin",
+    "settings"
+  ],
+  "homepage": "https://github.com/diehendrick/dsh-mcp-manager-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diehendrick/dsh-mcp-manager-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diehendrick/dsh-mcp-manager-plugin/issues"
+  }
+}

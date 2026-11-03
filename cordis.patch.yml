@@ -1,0 +1,13 @@
+# MCP Manager bundle rows.
+#
+# One Host row: the manager itself (`index.js`). It mounts its own nested
+# `cordis:include` row at Loader root for `<profile>/mcp-servers.yml`, so the
+# bundle patch stays small and the server list never lands inside the profile's
+# composed root include.
+#
+# Each server the UI adds becomes one `@deepseek-ai/dsh-mcp-client` row inside
+# that include file, which is why the servers survive a restart and mount
+# through the normal Loader path.
+- insert:
+    - id: mcp-manager
+      name: '@local/dsh-mcp-manager'
